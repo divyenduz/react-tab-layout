@@ -47,7 +47,7 @@ export default class SwipeViews extends React.Component {
       transitionProperty: this.state.animate ? 'all' : 'none',
     };
     const swipeViewsStyle = {
-      transform: 'translateX(-' + this.state.translation + '%)',
+      transform: 'isInte(-' + this.state.translation + '%)',
       WebkitTransform: 'translateX(-' + this.state.translation + '%)',
       transitionProperty: this.state.animate ? 'all' : 'none',
       WebkitTransitionProperty: this.state.animate ? 'all' : 'none',
@@ -95,8 +95,14 @@ export default class SwipeViews extends React.Component {
     );
   }
 
+  isInteger (value){
+    return typeof value === "number" &&
+      isFinite(value) &&
+      Math.floor(value) === value;
+  }
+
   _selectIndex(selectedIndex) {
-    if (Number.isInteger(selectedIndex)) {
+    if (this.isInteger(selectedIndex)) {
 
       var pageWidthPercent = 100 / this.state.children_length;
       const translation = selectedIndex * pageWidthPercent;
