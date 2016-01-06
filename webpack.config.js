@@ -21,9 +21,9 @@ if (config.gzip) {
 }
 
 module.exports = {
-    entry: './js/match_center/football/app/components/Main.js',
+    entry: './src/TabLayout.js',
     output: {
-        filename: './js/match_center/football/public/bundle.js'
+        filename: './public/TabLayout.js'
     },
     module: {
         loaders: [

@@ -1,5 +1,5 @@
 import React from 'react';
-import './SwipeViews.css';
+import './TabLayout.css';
 
 export default class SwipeViews extends React.Component {
 
