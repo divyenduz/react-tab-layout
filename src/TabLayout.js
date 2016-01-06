@@ -1,7 +1,7 @@
 import React from 'react';
 import './TabLayout.css';
 
-export default class SwipeViews extends React.Component {
+export default class TabLayout extends React.Component {
 
   measure(children_length, selectedIndex) {
     this.setState({
@@ -47,7 +47,7 @@ export default class SwipeViews extends React.Component {
       transitionProperty: this.state.animate ? 'all' : 'none',
     };
     const swipeViewsStyle = {
-      transform: 'isInte(-' + this.state.translation + '%)',
+      transform: 'translateX(-' + this.state.translation + '%)',
       WebkitTransform: 'translateX(-' + this.state.translation + '%)',
       transitionProperty: this.state.animate ? 'all' : 'none',
       WebkitTransitionProperty: this.state.animate ? 'all' : 'none',
@@ -95,14 +95,8 @@ export default class SwipeViews extends React.Component {
     );
   }
 
-  isInteger (value){
-    return typeof value === "number" &&
-      isFinite(value) &&
-      Math.floor(value) === value;
-  }
-
   _selectIndex(selectedIndex) {
-    if (this.isInteger(selectedIndex)) {
+    if (Number.isInteger(selectedIndex)) {
 
       var pageWidthPercent = 100 / this.state.children_length;
       const translation = selectedIndex * pageWidthPercent;
@@ -166,11 +160,11 @@ export default class SwipeViews extends React.Component {
   }
 }
 
-SwipeViews.contextTypes = {
+TabLayout.contextTypes = {
   router: React.PropTypes.func,
 };
 
-SwipeViews.propTypes = {
+TabLayout.propTypes = {
   children: React.PropTypes.array.isRequired,
   selectedIndex: React.PropTypes.number,
   onIndexChange: React.PropTypes.func,
