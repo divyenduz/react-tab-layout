@@ -30,9 +30,10 @@
 
 .SwipeViewsTab {
   display: inline;
-  padding-top: 15px;
+  padding-top: 10px;
   flex: 1;
   text-align: center;
+  cursor: default;
 }
 
 .SwipeViewsTab > a {
